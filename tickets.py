@@ -18,9 +18,18 @@ total = 0
 
 ##### define program functions #####
 def main():
-	get_user_data()
-	perform_calculations()
-	display_results()
+
+	more_tickets = True
+
+	while more_tickets:
+		get_user_data()
+		perform_calculations()
+		display_results()
+
+		yesno = input('\nWould you like to order again (Y or N)?')
+		if yesno == "N" or yesno == "n":
+			more_tickets = False
+			print('Thank you for your order. Enjoy your movie!')
 	
 def get_user_data():
 	global num_tickets
@@ -32,14 +41,14 @@ def perform_calculations():
 	sales_tax = subtotal * SALES_TAX_RATE
 	total = subtotal + sales_tax
 	
-def display_results():
+def display_results():	
 	print('-----------------------------')
 	print('**** CINEMA HOUSE MOVIES ****')
 	print('Your neighborhood movie house')
 	print('-----------------------------')
-	print('Tickets		$	'	+ str(subtotal))
-	print('Sales Tax	$	'	+ str(sales_tax))
-	print('Total		$	'	+ str(total))
+	print('Tickets		$	'	+ format(subtotal, '8,.2f'))
+	print('Sales Tax	$	'	+ format(sales_tax, '8,.2f'))
+	print('Total		$	'	+ format(total, '8,.2f'))
 	print('-----------------------------')
 	print(str(datetime.datetime.now()))
 	
