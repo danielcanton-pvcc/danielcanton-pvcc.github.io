@@ -39,23 +39,24 @@ def get_user_data():
 	num_child_meals = int(input("Number of child meals: "))
 
 def perform_calculations():
-	global subtotal, service_fee, sales_tax, total
-adult_subtotal = num_adult_meals * ADULT_MEAL
-child_subtotal = num_child_meals * CHILD_MEAL
-subtotal = adult_subtotal + child_subtotal
-sales_tax = subtotal * SALES_TAX_RATE
-service_fee = subtotal * SERVICE_FEE
-total = subtotal + sales_tax + service_fee
+    global subtotal, service_fee, sales_tax, total, adult_subtotal, child_subtotal
+    adult_subtotal = num_adult_meals * ADULT_MEAL
+    child_subtotal = num_child_meals * CHILD_MEAL
+    subtotal = adult_subtotal + child_subtotal
+    sales_tax = subtotal * SALES_TAX_RATE
+    service_fee = subtotal * SERVICE_FEE
+    total = subtotal + sales_tax + service_fee
 	
 def display_results():
     print('-----------------------------')
     print('*** Branch Barbeque Buffet ***')
     print('-----------------------------')
-    print('Adult Meals	$	'	+ format(adult_subtotal, '8,.2f'))
-    print('Child Meals  $   '   + format(child_subtotal, '8,.2f'))
-    print('Total Meals  $   '   + format(subtotal, '8,.2f'))
-    print('Sales Tax	$	'	+ format(sales_tax, '8,.2f'))
-    print('Total		$	'	+ format(total, '8,.2f'))
+    print('Adult Meals  $   '   +   format(adult_subtotal, '8,.2f'))
+    print('Child Meals  $   '   +   format(child_subtotal, '8,.2f'))
+    print('Total Meals  $   '   +   format(subtotal, '8,.2f'))
+    print('Service Fee  $   '   +   format(service_fee, '8,.2f'))
+    print('Sales Tax    $   '   +   format(sales_tax, '8,.2f'))
+    print('Total        $   '   +   format(total, '8,.2f'))
     print('-----------------------------')
     print(str(datetime.datetime.now()))
 	
